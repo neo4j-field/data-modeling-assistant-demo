@@ -1,0 +1,223 @@
+# Neo4j Salesforce Data Validation Queries
+# These queries validate that the graph addresses key use cases for support and sales operations
+
+metadata:
+  title: "Salesforce Neo4j Graph Validation Queries"
+  description: "Comprehensive queries to validate support ticket risk assessment and case assignment use cases"
+  version: "1.0"
+  created_date: "2025-08-27"
+  use_cases:
+    - "Identify accounts with open support tickets that have active opportunities (risk assessment)"
+    - "Determine optimal case owner assignment based on workload, industry expertise, and account familiarity"
+
+queries:
+  # Use Case 1: Risk Assessment - Accounts with Open Tickets and Active Opportunities
+  accounts_with_open_tickets_and_opportunities:
+    description: "Find accounts that have open support tickets and active opportunities to assess customer risk"
+    category: "risk_assessment"
+    priority: "high"
+    cypher: |
+      // Find accounts with open support tickets and their opportunities
+      MATCH (a:Account)-[:HAS_CASE]->(c:Case)
+      WHERE c.status <> 'Closed'
+      WITH a, collect(c) as openCases
+      MATCH (a)-[:HAS_OPPORTUNITY]->(o:Opportunity)
+      WHERE o.stageName IN ['Prospecting', 'Qualification', 'Needs Analysis', 'Value Proposition', 'Id. Decision Makers', 'Perception Analysis', 'Proposal/Price Quote', 'Negotiation/Review']
+      RETURN 
+        a.accountName as account,
+        a.industry as industry,
+        a.rating as rating,
+        size(openCases) as openCaseCount,
+        collect(DISTINCT o.stageName) as opportunityStages,
+        sum(o.amount) as totalOpportunityValue,
+        collect(DISTINCT o.probability) as opportunityProbabilities
+      ORDER BY openCaseCount DESC, totalOpportunityValue DESC
+    expected_output: "List of accounts with open cases and their opportunity values, sorted by risk level"
+
+  detailed_case_and_opportunity_analysis:
+    description: "Get detailed information about cases and opportunities for risk assessment"
+    category: "risk_assessment"
+    priority: "high"
+    cypher: |
+      // Get detailed case information for accounts with open tickets
+      MATCH (a:Account)-[:HAS_CASE]->(c:Case)-[:ASSIGNED_TO]->(owner:CaseOwner)
+      WHERE c.status <> 'Closed'
+      OPTIONAL MATCH (a)-[:HAS_OPPORTUNITY]->(o:Opportunity)
+      WHERE o.stageName IN ['Prospecting', 'Qualification', 'Needs Analysis', 'Value Proposition', 'Id. Decision Makers', 'Perception Analysis', 'Proposal/Price Quote', 'Negotiation/Review']
+      RETURN 
+        a.accountName as account,
+        a.industry as industry,
+        a.rating as accountRating,
+        c.subject as caseSubject,
+        c.priority as casePriority,
+        c.type as caseType,
+        c.status as caseStatus,
+        owner.name as caseOwner,
+        o.stageName as opportunityStage,
+        o.amount as opportunityAmount,
+        o.probability as opportunityProbability
+      ORDER BY 
+        CASE c.priority 
+          WHEN 'High' THEN 1 
+          WHEN 'Medium' THEN 2 
+          WHEN 'Low' THEN 3 
+          ELSE 4 
+        END,
+        o.amount DESC
+    expected_output: "Detailed case and opportunity data prioritized by case priority and opportunity value"
+
+  # Use Case 2: Case Assignment - Owner Expertise and Workload Analysis
+  case_owner_industry_expertise:
+    description: "Analyze case owner expertise by industry and account familiarity for optimal assignment"
+    category: "case_assignment"
+    priority: "medium"
+    cypher: |
+      // Analyze case owner expertise by industry and account familiarity
+      MATCH (owner:CaseOwner)<-[:ASSIGNED_TO]-(c:Case)<-[:HAS_CASE]-(a:Account)
+      WITH owner, a.industry as industry, a.accountName as account, count(c) as caseCount
+      RETURN 
+        owner.name as caseOwner,
+        industry,
+        count(DISTINCT account) as uniqueAccounts,
+        collect(DISTINCT account) as accountsHandled,
+        sum(caseCount) as totalCases
+      ORDER BY industry, totalCases DESC
+    expected_output: "Case owner expertise mapping by industry and account familiarity"
+
+  case_owner_workload_analysis:
+    description: "Analyze current workload and performance metrics for case owners"
+    category: "case_assignment"
+    priority: "high"
+    cypher: |
+      // Analyze case owner current workload and performance
+      MATCH (owner:CaseOwner)<-[:ASSIGNED_TO]-(c:Case)<-[:HAS_CASE]-(a:Account)
+      WITH owner, 
+           sum(CASE WHEN c.status <> 'Closed' THEN 1 ELSE 0 END) as openCases,
+           sum(CASE WHEN c.status = 'Closed' THEN 1 ELSE 0 END) as closedCases,
+           sum(CASE WHEN c.priority = 'High' AND c.status <> 'Closed' THEN 1 ELSE 0 END) as openHighPriority,
+           sum(CASE WHEN c.priority = 'Critical' AND c.status <> 'Closed' THEN 1 ELSE 0 END) as openCritical,
+           collect(DISTINCT a.industry) as industries
+      RETURN 
+        owner.name as caseOwner,
+        openCases,
+        closedCases,
+        openHighPriority,
+        openCritical,
+        industries,
+        size(industries) as industryExpertise
+      ORDER BY openCases DESC, openHighPriority DESC
+    expected_output: "Current workload and priority distribution by case owner"
+
+  # Utility Queries for Ongoing Operations
+  schema_validation:
+    description: "Validate the graph schema and relationships"
+    category: "validation"
+    priority: "low"
+    cypher: |
+      // This query uses the schema function - replace with actual schema inspection
+      CALL db.schema.visualization()
+      YIELD nodes, relationships
+      RETURN nodes, relationships
+    note: "This uses Neo4j's schema visualization. In practice, use the salesforce-graph:get_neo4j_schema function"
+    expected_output: "Graph schema with nodes, relationships, and properties"
+
+  critical_cases_requiring_attention:
+    description: "Find all critical and escalated cases that need immediate attention"
+    category: "operations"
+    priority: "critical"
+    cypher: |
+      MATCH (a:Account)-[:HAS_CASE]->(c:Case)-[:ASSIGNED_TO]->(owner:CaseOwner)
+      WHERE c.priority IN ['Critical', 'High'] AND c.status IN ['Escalated', 'New', 'Working', 'In Progress']
+      OPTIONAL MATCH (a)-[:HAS_OPPORTUNITY]->(o:Opportunity)
+      WHERE o.stageName IN ['Prospecting', 'Qualification', 'Needs Analysis', 'Value Proposition', 'Id. Decision Makers', 'Perception Analysis', 'Proposal/Price Quote', 'Negotiation/Review']
+      RETURN 
+        c.priority as priority,
+        c.status as status,
+        a.accountName as account,
+        a.rating as accountRating,
+        c.subject as caseSubject,
+        owner.name as assignedOwner,
+        sum(o.amount) as opportunityValueAtRisk
+      ORDER BY 
+        CASE c.priority WHEN 'Critical' THEN 1 WHEN 'High' THEN 2 ELSE 3 END,
+        CASE c.status WHEN 'Escalated' THEN 1 WHEN 'New' THEN 2 ELSE 3 END
+    expected_output: "Critical cases sorted by priority and status for immediate action"
+
+  optimal_case_assignment_by_industry:
+    description: "Recommend case owner assignment based on industry expertise and current workload"
+    category: "case_assignment"
+    priority: "medium"
+    parameters:
+      industry: "Technology"  # Example parameter
+    cypher: |
+      // For a new case in a specific industry, find the best owner
+      MATCH (owner:CaseOwner)<-[:ASSIGNED_TO]-(c:Case)<-[:HAS_CASE]-(a:Account)
+      WHERE a.industry = $industry
+      WITH owner, 
+           count(CASE WHEN c.status <> 'Closed' THEN 1 END) as currentWorkload,
+           count(DISTINCT a.accountName) as accountExperience,
+           collect(DISTINCT a.accountName) as accountsHandled
+      RETURN 
+        owner.name as recommendedOwner,
+        currentWorkload,
+        accountExperience,
+        accountsHandled
+      ORDER BY currentWorkload ASC, accountExperience DESC
+      LIMIT 3
+    expected_output: "Top 3 recommended case owners for the specified industry"
+
+  account_health_dashboard:
+    description: "Overall account health combining cases, opportunities, and ratings"
+    category: "dashboard"
+    priority: "medium"
+    cypher: |
+      MATCH (a:Account)
+      OPTIONAL MATCH (a)-[:HAS_CASE]->(c:Case)
+      OPTIONAL MATCH (a)-[:HAS_OPPORTUNITY]->(o:Opportunity)
+      WHERE o.stageName IN ['Prospecting', 'Qualification', 'Needs Analysis', 'Value Proposition', 'Id. Decision Makers', 'Perception Analysis', 'Proposal/Price Quote', 'Negotiation/Review']
+      WITH a,
+           count(CASE WHEN c.status <> 'Closed' THEN 1 END) as openCases,
+           count(CASE WHEN c.status = 'Closed' THEN 1 END) as closedCases,
+           count(CASE WHEN c.priority IN ['Critical', 'High'] AND c.status <> 'Closed' THEN 1 END) as highPriorityCases,
+           sum(o.amount) as totalOpportunityValue,
+           avg(o.probability) as avgOpportunityProbability
+      RETURN 
+        a.accountName as account,
+        a.industry as industry,
+        a.rating as rating,
+        openCases,
+        closedCases,
+        highPriorityCases,
+        coalesce(totalOpportunityValue, 0) as opportunityValue,
+        coalesce(round(avgOpportunityProbability), 0) as avgProbability,
+        CASE 
+          WHEN highPriorityCases > 0 AND totalOpportunityValue > 500000 THEN 'HIGH_RISK'
+          WHEN openCases > 0 AND totalOpportunityValue > 0 THEN 'MEDIUM_RISK'
+          WHEN openCases > 0 THEN 'LOW_RISK'
+          ELSE 'STABLE'
+        END as healthStatus
+      ORDER BY 
+        CASE healthStatus 
+          WHEN 'HIGH_RISK' THEN 1 
+          WHEN 'MEDIUM_RISK' THEN 2 
+          WHEN 'LOW_RISK' THEN 3 
+          ELSE 4 
+        END,
+        opportunityValue DESC
+    expected_output: "Account health status with risk categorization"
+
+# Usage Instructions
+usage_instructions: |
+  1. Use these queries to validate your Neo4j Salesforce graph implementation
+  2. Run queries in order of priority (critical -> high -> medium -> low)
+  3. For case assignment queries, modify the $industry parameter as needed
+  4. Monitor critical cases daily using the critical_cases_requiring_attention query
+  5. Use the account_health_dashboard query for executive reporting
+
+# Expected Business Outcomes
+business_outcomes:
+  - "Proactive identification of at-risk customer accounts"
+  - "Optimized case assignment leading to faster resolution times"
+  - "Improved customer satisfaction through better support coverage"
+  - "Data-driven decision making for support team management"
+  - "Early warning system for potential customer churn"
