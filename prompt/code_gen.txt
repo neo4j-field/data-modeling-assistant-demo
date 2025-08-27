@@ -1,0 +1,12 @@
+I would like to create an ingest script to load my data into Neo4j. I already have an empty Neo4j database ready. 
+* Use uv to manage this project 
+* The CSV data is located in data/
+* The validated data model we are using for this graph is data_model/data_model.json
+* The database connection credentials are in a .env file. Look at the .env.example file for reference.
+* the yaml config file is called pyneoinstance_config.yaml
+
+I would like to use the following libraries to accomplish this
+* pyneoinstance
+* pandas
+
+Use the latest version of each library please. 

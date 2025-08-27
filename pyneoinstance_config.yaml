@@ -1,0 +1,244 @@
+# CRM Graph Data Model - Complete Ingest Queries
+# This file contains all necessary Cypher queries to initialize and load the CRM data model
+
+initializing_queries:
+  constraints:
+    # Node key constraints to ensure uniqueness and create indexes
+    - "CREATE CONSTRAINT Account_constraint IF NOT EXISTS FOR (n:Account) REQUIRE (n.accountId) IS NODE KEY;"
+    - "CREATE CONSTRAINT Contact_constraint IF NOT EXISTS FOR (n:Contact) REQUIRE (n.contactId) IS NODE KEY;"
+    - "CREATE CONSTRAINT Case_constraint IF NOT EXISTS FOR (n:Case) REQUIRE (n.caseId) IS NODE KEY;"
+    - "CREATE CONSTRAINT Opportunity_constraint IF NOT EXISTS FOR (n:Opportunity) REQUIRE (n.opportunityId) IS NODE KEY;"
+    - "CREATE CONSTRAINT Lead_constraint IF NOT EXISTS FOR (n:Lead) REQUIRE (n.leadId) IS NODE KEY;"
+    - "CREATE CONSTRAINT CaseOwner_constraint IF NOT EXISTS FOR (n:CaseOwner) REQUIRE (n.ownerId) IS NODE KEY;"
+  
+  indexes:
+    # Additional indexes for query performance (optional - constraints already create range indexes)
+    # Uncomment if you need additional property-specific indexes
+    # - "CREATE INDEX account_industry_idx IF NOT EXISTS FOR (a:Account) ON (a.industry);"
+    # - "CREATE INDEX case_status_idx IF NOT EXISTS FOR (c:Case) ON (c.status);"
+    # - "CREATE INDEX opportunity_stage_idx IF NOT EXISTS FOR (o:Opportunity) ON (o.stageName);"
+
+loading_queries:
+  nodes:
+    Account:
+      source_file: "accounts.csv"
+      query: |
+        UNWIND $records as record
+        MERGE (n: Account {accountId: record.accountId})
+        SET n += {
+          accountName: record.accountName, 
+          accountType: record.accountType, 
+          industry: record.industry, 
+          annualRevenue: record.annualRevenue, 
+          numberOfEmployees: record.numberOfEmployees, 
+          accountOwner: record.accountOwner, 
+          createdDate: record.createdDate, 
+          rating: record.rating
+        }
+      field_mappings:
+        accountId: "Account_ID"
+        accountName: "Account_Name"
+        accountType: "Account_Type"
+        industry: "Industry"
+        annualRevenue: "Annual_Revenue"
+        numberOfEmployees: "Number_of_Employees"
+        accountOwner: "Account_Owner"
+        createdDate: "Created_Date"
+        rating: "Rating"
+
+    Contact:
+      source_file: "contacts.csv"
+      query: |
+        UNWIND $records as record
+        MERGE (n: Contact {contactId: record.contactId})
+        SET n += {
+          firstName: record.firstName, 
+          lastName: record.lastName, 
+          title: record.title, 
+          email: record.email, 
+          contactOwner: record.contactOwner, 
+          leadSource: record.leadSource
+        }
+      field_mappings:
+        contactId: "Contact_ID"
+        firstName: "First_Name"
+        lastName: "Last_Name"
+        title: "Title"
+        email: "Email"
+        contactOwner: "Contact_Owner"
+        leadSource: "Lead_Source"
+
+    Case:
+      source_file: "cases.csv"
+      query: |
+        UNWIND $records as record
+        MERGE (n: Case {caseId: record.caseId})
+        SET n += {
+          caseNumber: record.caseNumber, 
+          subject: record.subject, 
+          status: record.status, 
+          priority: record.priority, 
+          type: record.type, 
+          reason: record.reason, 
+          createdDate: record.createdDate, 
+          closedDate: record.closedDate
+        }
+      field_mappings:
+        caseId: "Case_ID"
+        caseNumber: "Case_Number"
+        subject: "Subject"
+        status: "Status"
+        priority: "Priority"
+        type: "Type"
+        reason: "Reason"
+        createdDate: "Created_Date"
+        closedDate: "Closed_Date"
+
+    Opportunity:
+      source_file: "opps.csv"
+      query: |
+        UNWIND $records as record
+        MERGE (n: Opportunity {opportunityId: record.opportunityId})
+        SET n += {
+          opportunityName: record.opportunityName, 
+          amount: record.amount, 
+          closeDate: record.closeDate, 
+          stageName: record.stageName, 
+          probability: record.probability, 
+          opportunityOwner: record.opportunityOwner
+        }
+      field_mappings:
+        opportunityId: "Opportunity_ID"
+        opportunityName: "Opportunity_Name"
+        amount: "Amount"
+        closeDate: "Close_Date"
+        stageName: "Stage_Name"
+        probability: "Probability"
+        opportunityOwner: "Opportunity_Owner"
+
+    Lead:
+      source_file: "leads.csv"
+      query: |
+        UNWIND $records as record
+        MERGE (n: Lead {leadId: record.leadId})
+        SET n += {
+          firstName: record.firstName, 
+          lastName: record.lastName, 
+          company: record.company, 
+          status: record.status, 
+          industry: record.industry, 
+          leadOwner: record.leadOwner
+        }
+      field_mappings:
+        leadId: "Lead_ID"
+        firstName: "First_Name"
+        lastName: "Last_Name"
+        company: "Company"
+        status: "Status"
+        industry: "Industry"
+        leadOwner: "Lead_Owner"
+
+    CaseOwner:
+      source_file: "cases.csv"
+      query: |
+        UNWIND $records as record
+        MERGE (n: CaseOwner {ownerId: record.ownerId})
+        SET n += {name: record.name}
+      field_mappings:
+        ownerId: "Case_Owner"  # Derived - needs transformation
+        name: "Case_Owner"
+      notes: |
+        Extract unique Case_Owner values from cases.csv.
+        Transform names to create ownerId (e.g., "Sarah Johnson" -> "sarah_johnson").
+
+  relationships:
+    BELONGS_TO_ACCOUNT:
+      description: "Connect contacts to their accounts"
+      source_data: "contacts.csv"
+      query: |
+        UNWIND $records as record
+        MATCH (start: Contact {contactId: record.sourceId})
+        MATCH (end: Account {accountId: record.targetId})
+        MERGE (start)-[:BELONGS_TO_ACCOUNT]->(end)
+      field_mappings:
+        sourceId: "Contact_ID"
+        targetId: "Account_ID"
+
+    HAS_CASE:
+      description: "Connect accounts to their support cases"
+      source_data: "cases.csv"
+      query: |
+        UNWIND $records as record
+        MATCH (start: Account {accountId: record.sourceId})
+        MATCH (end: Case {caseId: record.targetId})
+        MERGE (start)-[:HAS_CASE]->(end)
+      field_mappings:
+        sourceId: "Account_ID"
+        targetId: "Case_ID"
+
+    REPORTED_BY:
+      description: "Connect cases to the contacts who reported them"
+      source_data: "cases.csv"
+      query: |
+        UNWIND $records as record
+        MATCH (start: Case {caseId: record.sourceId})
+        MATCH (end: Contact {contactId: record.targetId})
+        MERGE (start)-[:REPORTED_BY]->(end)
+      field_mappings:
+        sourceId: "Case_ID"
+        targetId: "Contact_ID"
+
+    HAS_OPPORTUNITY:
+      description: "Connect accounts to their sales opportunities"
+      source_data: "opps.csv"
+      query: |
+        UNWIND $records as record
+        MATCH (start: Account {accountId: record.sourceId})
+        MATCH (end: Opportunity {opportunityId: record.targetId})
+        MERGE (start)-[:HAS_OPPORTUNITY]->(end)
+      field_mappings:
+        sourceId: "Account_ID"
+        targetId: "Opportunity_ID"
+
+    CONVERTED_TO_OPPORTUNITY:
+      description: "Connect leads that converted to opportunities"
+      source_data: "Custom mapping required"
+      query: |
+        UNWIND $records as record
+        MATCH (start: Lead {leadId: record.sourceId})
+        MATCH (end: Opportunity {opportunityId: record.targetId})
+        MERGE (start)-[:CONVERTED_TO_OPPORTUNITY]->(end)
+      field_mappings:
+        sourceId: "Lead_ID"
+        targetId: "Opportunity_ID"
+      notes: |
+        This relationship requires custom logic to identify which leads
+        converted to which opportunities. Consider matching on company name,
+        contact details, or lead source.
+
+    ASSIGNED_TO:
+      description: "Connect cases to their assigned case owners"
+      source_data: "cases.csv"
+      query: |
+        UNWIND $records as record
+        MATCH (start: Case {caseId: record.sourceId})
+        MATCH (end: CaseOwner {ownerId: record.targetId})
+        MERGE (start)-[:ASSIGNED_TO]->(end)
+      field_mappings:
+        sourceId: "Case_ID"
+        targetId: "Case_Owner"  # Needs transformation to ownerId format
+
+# Data Loading Order Recommendations:
+# 1. Run all constraint queries first
+# 2. Load nodes in this order:
+#    - CaseOwner (derived from cases.csv)
+#    - Account, Contact, Lead, Case, Opportunity (can be parallel)
+# 3. Load relationships in this order:
+#    - BELONGS_TO_ACCOUNT
+#    - HAS_CASE, REPORTED_BY, ASSIGNED_TO
+#    - HAS_OPPORTUNITY
+#    - CONVERTED_TO_OPPORTUNITY (requires custom mapping logic)
+
+# Sample Parameter Format:
+# For node loading: {"records": [{"field1": "value1", "field2": "value2"}, ...]}
+# For relationship loading: {"records": [{"sourceId": "id1", "targetId": "id2"}, ...]}
