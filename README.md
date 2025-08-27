@@ -73,6 +73,10 @@ uv run python3 ingest.py
 | HAS_OPPORTUNITY | 26 |
 | ASSIGNED_TO | 30 |
 
+The below graph shows a snippet of the results:
+
+![graph-example](./assets/images/graph-viz-sample-2.png)
+
 ## Use Case Validation
 
 Claude Desktop using Claude Sonnet 4 was used to analyze our use cases with the resulting Neo4j graph. We used the Neo4j Cypher MCP server to connect to the database. 
