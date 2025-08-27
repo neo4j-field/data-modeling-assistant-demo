@@ -1,0 +1,501 @@
+{
+    "nodes": [
+      {
+        "label": "Account",
+        "key_property": {
+          "name": "accountId",
+          "type": "STRING",
+          "source": {
+            "column_name": "Account_ID",
+            "table_name": "accounts.csv",
+            "location": null
+          },
+          "description": "Unique identifier for the account"
+        },
+        "properties": [
+          {
+            "name": "accountName",
+            "type": "STRING",
+            "source": {
+              "column_name": "Account_Name",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Name of the account/company"
+          },
+          {
+            "name": "accountType",
+            "type": "STRING",
+            "source": {
+              "column_name": "Account_Type",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Type of account (Customer, Prospect, etc.)"
+          },
+          {
+            "name": "industry",
+            "type": "STRING",
+            "source": {
+              "column_name": "Industry",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Industry classification"
+          },
+          {
+            "name": "annualRevenue",
+            "type": "INTEGER",
+            "source": {
+              "column_name": "Annual_Revenue",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Annual revenue of the account"
+          },
+          {
+            "name": "numberOfEmployees",
+            "type": "INTEGER",
+            "source": {
+              "column_name": "Number_of_Employees",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Number of employees"
+          },
+          {
+            "name": "accountOwner",
+            "type": "STRING",
+            "source": {
+              "column_name": "Account_Owner",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Sales person responsible for the account"
+          },
+          {
+            "name": "createdDate",
+            "type": "DATE",
+            "source": {
+              "column_name": "Created_Date",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Date when account was created"
+          },
+          {
+            "name": "rating",
+            "type": "STRING",
+            "source": {
+              "column_name": "Rating",
+              "table_name": "accounts.csv",
+              "location": null
+            },
+            "description": "Account rating (Hot, Warm, Cold)"
+          }
+        ],
+        "metadata": {}
+      },
+      {
+        "label": "Contact",
+        "key_property": {
+          "name": "contactId",
+          "type": "STRING",
+          "source": {
+            "column_name": "Contact_ID",
+            "table_name": "contacts.csv",
+            "location": null
+          },
+          "description": "Unique identifier for the contact"
+        },
+        "properties": [
+          {
+            "name": "firstName",
+            "type": "STRING",
+            "source": {
+              "column_name": "First_Name",
+              "table_name": "contacts.csv",
+              "location": null
+            },
+            "description": "First name"
+          },
+          {
+            "name": "lastName",
+            "type": "STRING",
+            "source": {
+              "column_name": "Last_Name",
+              "table_name": "contacts.csv",
+              "location": null
+            },
+            "description": "Last name"
+          },
+          {
+            "name": "title",
+            "type": "STRING",
+            "source": {
+              "column_name": "Title",
+              "table_name": "contacts.csv",
+              "location": null
+            },
+            "description": "Job title"
+          },
+          {
+            "name": "email",
+            "type": "STRING",
+            "source": {
+              "column_name": "Email",
+              "table_name": "contacts.csv",
+              "location": null
+            },
+            "description": "Email address"
+          },
+          {
+            "name": "contactOwner",
+            "type": "STRING",
+            "source": {
+              "column_name": "Contact_Owner",
+              "table_name": "contacts.csv",
+              "location": null
+            },
+            "description": "Person responsible for this contact"
+          },
+          {
+            "name": "leadSource",
+            "type": "STRING",
+            "source": {
+              "column_name": "Lead_Source",
+              "table_name": "contacts.csv",
+              "location": null
+            },
+            "description": "Original lead source"
+          }
+        ],
+        "metadata": {}
+      },
+      {
+        "label": "Case",
+        "key_property": {
+          "name": "caseId",
+          "type": "STRING",
+          "source": {
+            "column_name": "Case_ID",
+            "table_name": "cases.csv",
+            "location": null
+          },
+          "description": "Unique identifier for the case"
+        },
+        "properties": [
+          {
+            "name": "caseNumber",
+            "type": "INTEGER",
+            "source": {
+              "column_name": "Case_Number",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Sequential case number"
+          },
+          {
+            "name": "subject",
+            "type": "STRING",
+            "source": {
+              "column_name": "Subject",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Brief description of the case"
+          },
+          {
+            "name": "status",
+            "type": "STRING",
+            "source": {
+              "column_name": "Status",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Current case status"
+          },
+          {
+            "name": "priority",
+            "type": "STRING",
+            "source": {
+              "column_name": "Priority",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Case priority level"
+          },
+          {
+            "name": "type",
+            "type": "STRING",
+            "source": {
+              "column_name": "Type",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Type of case"
+          },
+          {
+            "name": "reason",
+            "type": "STRING",
+            "source": {
+              "column_name": "Reason",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Reason for the case"
+          },
+          {
+            "name": "createdDate",
+            "type": "DATE",
+            "source": {
+              "column_name": "Created_Date",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Date when case was created"
+          },
+          {
+            "name": "closedDate",
+            "type": "DATE",
+            "source": {
+              "column_name": "Closed_Date",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Date when case was closed"
+          }
+        ],
+        "metadata": {}
+      },
+      {
+        "label": "Opportunity",
+        "key_property": {
+          "name": "opportunityId",
+          "type": "STRING",
+          "source": {
+            "column_name": "Opportunity_ID",
+            "table_name": "opps.csv",
+            "location": null
+          },
+          "description": "Unique identifier for the opportunity"
+        },
+        "properties": [
+          {
+            "name": "opportunityName",
+            "type": "STRING",
+            "source": {
+              "column_name": "Opportunity_Name",
+              "table_name": "opps.csv",
+              "location": null
+            },
+            "description": "Name of the sales opportunity"
+          },
+          {
+            "name": "amount",
+            "type": "INTEGER",
+            "source": {
+              "column_name": "Amount",
+              "table_name": "opps.csv",
+              "location": null
+            },
+            "description": "Monetary value of the opportunity"
+          },
+          {
+            "name": "closeDate",
+            "type": "DATE",
+            "source": {
+              "column_name": "Close_Date",
+              "table_name": "opps.csv",
+              "location": null
+            },
+            "description": "Expected or actual close date"
+          },
+          {
+            "name": "stageName",
+            "type": "STRING",
+            "source": {
+              "column_name": "Stage_Name",
+              "table_name": "opps.csv",
+              "location": null
+            },
+            "description": "Current stage in sales pipeline"
+          },
+          {
+            "name": "probability",
+            "type": "INTEGER",
+            "source": {
+              "column_name": "Probability",
+              "table_name": "opps.csv",
+              "location": null
+            },
+            "description": "Probability of closing (0-100%)"
+          },
+          {
+            "name": "opportunityOwner",
+            "type": "STRING",
+            "source": {
+              "column_name": "Opportunity_Owner",
+              "table_name": "opps.csv",
+              "location": null
+            },
+            "description": "Sales person responsible for the opportunity"
+          }
+        ],
+        "metadata": {}
+      },
+      {
+        "label": "Lead",
+        "key_property": {
+          "name": "leadId",
+          "type": "STRING",
+          "source": {
+            "column_name": "Lead_ID",
+            "table_name": "leads.csv",
+            "location": null
+          },
+          "description": "Unique identifier for the lead"
+        },
+        "properties": [
+          {
+            "name": "firstName",
+            "type": "STRING",
+            "source": {
+              "column_name": "First_Name",
+              "table_name": "leads.csv",
+              "location": null
+            },
+            "description": "First name"
+          },
+          {
+            "name": "lastName",
+            "type": "STRING",
+            "source": {
+              "column_name": "Last_Name",
+              "table_name": "leads.csv",
+              "location": null
+            },
+            "description": "Last name"
+          },
+          {
+            "name": "company",
+            "type": "STRING",
+            "source": {
+              "column_name": "Company",
+              "table_name": "leads.csv",
+              "location": null
+            },
+            "description": "Company name"
+          },
+          {
+            "name": "status",
+            "type": "STRING",
+            "source": {
+              "column_name": "Status",
+              "table_name": "leads.csv",
+              "location": null
+            },
+            "description": "Lead status"
+          },
+          {
+            "name": "industry",
+            "type": "STRING",
+            "source": {
+              "column_name": "Industry",
+              "table_name": "leads.csv",
+              "location": null
+            },
+            "description": "Industry classification"
+          },
+          {
+            "name": "leadOwner",
+            "type": "STRING",
+            "source": {
+              "column_name": "Lead_Owner",
+              "table_name": "leads.csv",
+              "location": null
+            },
+            "description": "Person responsible for the lead"
+          }
+        ],
+        "metadata": {}
+      },
+      {
+        "label": "CaseOwner",
+        "key_property": {
+          "name": "ownerId",
+          "type": "STRING",
+          "source": {
+            "column_name": "Case_Owner",
+            "table_name": "cases.csv",
+            "location": null
+          },
+          "description": "Unique identifier for the case owner (derived from name)"
+        },
+        "properties": [
+          {
+            "name": "name",
+            "type": "STRING",
+            "source": {
+              "column_name": "Case_Owner",
+              "table_name": "cases.csv",
+              "location": null
+            },
+            "description": "Full name of the case owner"
+          }
+        ],
+        "metadata": {}
+      }
+    ],
+    "metadata": {},
+    "relationships": [
+      {
+        "type": "BELONGS_TO_ACCOUNT",
+        "start_node_label": "Contact",
+        "end_node_label": "Account",
+        "key_property": null,
+        "properties": [],
+        "metadata": {}
+      },
+      {
+        "type": "HAS_CASE",
+        "start_node_label": "Account",
+        "end_node_label": "Case",
+        "key_property": null,
+        "properties": [],
+        "metadata": {}
+      },
+      {
+        "type": "REPORTED_BY",
+        "start_node_label": "Case",
+        "end_node_label": "Contact",
+        "key_property": null,
+        "properties": [],
+        "metadata": {}
+      },
+      {
+        "type": "HAS_OPPORTUNITY",
+        "start_node_label": "Account",
+        "end_node_label": "Opportunity",
+        "key_property": null,
+        "properties": [],
+        "metadata": {}
+      },
+      {
+        "type": "CONVERTED_TO_OPPORTUNITY",
+        "start_node_label": "Lead",
+        "end_node_label": "Opportunity",
+        "key_property": null,
+        "properties": [],
+        "metadata": {}
+      },
+      {
+        "type": "ASSIGNED_TO",
+        "start_node_label": "Case",
+        "end_node_label": "CaseOwner",
+        "key_property": null,
+        "properties": [],
+        "metadata": {}
+      }
+    ]
+  }

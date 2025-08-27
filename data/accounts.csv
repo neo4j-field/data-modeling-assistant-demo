@@ -1,0 +1,26 @@
+Account_ID,Account_Name,Account_Type,Industry,Annual_Revenue,Number_of_Employees,Billing_Street,Billing_City,Billing_State,Billing_Postal_Code,Billing_Country,Phone,Website,Account_Owner,Created_Date,Rating
+A001,TechFlow Solutions,Customer,Technology,2500000,150,"123 Innovation Dr","San Francisco",CA,94105,USA,(415) 555-0123,www.techflow.com,Sarah Johnson,2023-01-15,Hot
+A002,Global Manufacturing Corp,Customer,Manufacturing,15000000,850,"456 Industrial Blvd","Detroit",MI,48201,USA,(313) 555-0456,www.globalmfg.com,Mike Chen,2023-01-22,Warm
+A003,HealthFirst Medical,Customer,Healthcare,8500000,320,"789 Medical Center Way","Boston",MA,02101,USA,(617) 555-0789,www.healthfirst.com,Emily Rodriguez,2023-02-03,Hot
+A004,EduTech Innovations,Prospect,Education,1200000,85,"321 Campus Lane","Austin",TX,78701,USA,(512) 555-0321,www.edutech.com,David Park,2023-02-15,Cold
+A005,RetailMax Stores,Customer,Retail,45000000,2100,"654 Commerce St","Chicago",IL,60601,USA,(312) 555-0654,www.retailmax.com,Lisa Wang,2023-02-28,Warm
+A006,GreenEnergy Systems,Prospect,Energy,3200000,180,"987 Solar Way","Phoenix",AZ,85001,USA,(602) 555-0987,www.greenenergy.com,James Wilson,2023-03-10,Warm
+A007,Financial Partners LLC,Customer,Financial Services,28000000,450,"159 Wall Street","New York",NY,10005,USA,(212) 555-0159,www.finpartners.com,Anna Thompson,2023-03-18,Hot
+A008,CloudFirst Consulting,Customer,Consulting,5500000,95,"753 Tech Plaza","Seattle",WA,98101,USA,(206) 555-0753,www.cloudfirst.com,Robert Kim,2023-04-02,Warm
+A009,AgriGrow Solutions,Prospect,Agriculture,2800000,220,"852 Farm Road","Des Moines",IA,50301,USA,(515) 555-0852,www.agrigrow.com,Michelle Davis,2023-04-14,Cold
+A010,MediaStream Networks,Customer,Media,12000000,380,"147 Broadcast Ave","Los Angeles",CA,90028,USA,(323) 555-0147,www.mediastream.com,Chris Anderson,2023-04-25,Hot
+A011,BioPharma Research,Customer,Pharmaceuticals,35000000,650,"258 Research Pkwy","Cambridge",MA,02139,USA,(617) 555-0258,www.biopharma.com,Jennifer Lee,2023-05-08,Hot
+A012,SmartLogistics Corp,Prospect,Transportation,18000000,920,"369 Freight Ln","Memphis",TN,38103,USA,(901) 555-0369,www.smartlogistics.com,Mark Taylor,2023-05-20,Warm
+A013,UrbanDev Properties,Customer,Real Estate,22000000,180,"741 Development Dr","Miami",FL,33131,USA,(305) 555-0741,www.urbandev.com,Ashley Miller,2023-06-01,Warm
+A014,FoodTech Innovations,Prospect,Food & Beverage,6500000,280,"963 Culinary Blvd","Portland",OR,97201,USA,(503) 555-0963,www.foodtech.com,Kevin Brown,2023-06-15,Cold
+A015,SecureNet Cybersecurity,Customer,Technology,4200000,125,"852 Security Way","Denver",CO,80202,USA,(303) 555-0852,www.securenet.com,Rachel Green,2023-06-28,Hot
+A016,AutoParts Plus,Customer,Automotive,9800000,420,"753 Motor Ave","Indianapolis",IN,46201,USA,(317) 555-0753,www.autoparts.com,Tom Martinez,2023-07-12,Warm
+A017,TravelEase Services,Prospect,Hospitality,3800000,150,"159 Vacation St","Orlando",FL,32801,USA,(407) 555-0159,www.travelease.com,Sandra Wilson,2023-07-25,Cold
+A018,BuildSmart Construction,Customer,Construction,16500000,580,"357 Builder Rd","Houston",TX,77001,USA,(713) 555-0357,www.buildsmart.com,Eric Johnson,2023-08-08,Warm
+A019,DataViz Analytics,Customer,Technology,7200000,95,,"159 Analytics Ave","Atlanta",GA,30303,USA,(404) 555-0159,www.dataviz.com,Maria Garcia,2023-08-20,Hot
+A020,CleanTech Solutions,Prospect,Environmental,2900000,110,"951 Green Blvd","San Diego",CA,92101,USA,(619) 555-0951,www.cleantech.com,Alex Turner,2023-09-03,Cold
+A021,FinanceFlow Software,Customer,Financial Services,8900000,165,"753 Banking St","Charlotte",NC,28201,USA,(704) 555-0753,www.financeflow.com,Nicole Adams,2023-09-15,Warm
+A022,SportsTech Gear,Customer,Sports & Recreation,4600000,190,"258 Athletic Way","Minneapolis",MN,55401,USA,(612) 555-0258,www.sportstech.com,Jason Lee,2023-09-28,Hot
+A023,PetCare Veterinary,Prospect,Healthcare,1800000,75,"147 Pet Lane","Nashville",TN,37201,USA,(615) 555-0147,www.petcare.com,Lauren White,2023-10-10,Cold
+A024,SmartHome Devices,Customer,Technology,11200000,280,"369 Connected Dr","Austin",TX,78702,USA,(512) 555-0369,www.smarthome.com,Daniel Kim,2023-10-22,Warm
+A025,FreshFood Markets,Customer,Retail,26000000,1200,"741 Market St","Sacramento",CA,95814,USA,(916) 555-0741,www.freshfood.com,Amanda Chen,2023-11-05,Hot

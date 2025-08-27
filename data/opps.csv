@@ -1,0 +1,31 @@
+Opportunity_ID,Opportunity_Name,Account_ID,Amount,Close_Date,Stage_Name,Probability,Lead_Source,Type,Next_Step,Opportunity_Owner,Created_Date,Last_Activity_Date
+O001,TechFlow - Cloud Migration,A001,450000,2024-09-15,Proposal/Price Quote,75,Website,New Business,"Finalize technical requirements",Sarah Johnson,2023-06-15,2024-08-05
+O002,TechFlow - Security Upgrade,A001,125000,2024-08-30,Negotiation/Review,85,Referral,Add-On Business,"Contract review and approval",Sarah Johnson,2024-01-20,2024-08-07
+O003,Global Manufacturing - ERP Implementation,A002,850000,2024-10-20,Proposal/Price Quote,60,Trade Show,New Business,"Present implementation timeline",Mike Chen,2023-08-10,2024-08-01
+O004,Global Manufacturing - Maintenance Contract,A002,95000,2024-09-05,Closed Won,100,Existing Customer,Renewal,"Contract signed",Mike Chen,2024-07-01,2024-08-02
+O005,HealthFirst - Patient Portal,A003,320000,2024-11-15,Qualification,40,Website,New Business,"Conduct needs assessment",Emily Rodriguez,2024-03-12,2024-07-30
+O006,HealthFirst - Data Analytics Platform,A003,275000,2024-12-01,Value Proposition,25,LinkedIn,New Business,"Schedule stakeholder meeting",Emily Rodriguez,2024-05-08,2024-08-04
+O007,RetailMax - POS System Upgrade,A005,680000,2024-09-30,Negotiation/Review,80,Partner Referral,Replacement Business,"Final pricing negotiations",Lisa Wang,2024-02-14,2024-08-06
+O008,RetailMax - Inventory Management,A005,420000,2024-10-15,Proposal/Price Quote,65,Website,Add-On Business,"Present ROI analysis",Lisa Wang,2024-04-22,2024-08-03
+O009,Financial Partners - Risk Management Suite,A007,1250000,2024-11-30,Value Proposition,30,LinkedIn,New Business,"Compliance requirements review",Anna Thompson,2024-01-15,2024-08-05
+O010,Financial Partners - Trading Platform,A007,890000,2025-01-15,Qualification,35,Cold Call,New Business,"Technical architecture discussion",Anna Thompson,2024-06-20,2024-08-07
+O011,CloudFirst - DevOps Transformation,A008,380000,2024-09-20,Proposal/Price Quote,70,Referral,New Business,"Resource allocation planning",Robert Kim,2024-03-05,2024-08-02
+O012,MediaStream - Content Management,A010,560000,2024-10-30,Negotiation/Review,85,Website,Replacement Business,"License agreement review",Chris Anderson,2023-12-10,2024-08-04
+O013,MediaStream - Streaming Infrastructure,A010,975000,2025-02-28,Value Proposition,25,LinkedIn,New Business,"Scalability requirements analysis",Chris Anderson,2024-05-18,2024-08-01
+O014,BioPharma - Research Data Platform,A011,1850000,2025-03-31,Qualification,45,Conference,New Business,"Regulatory compliance discussion",Jennifer Lee,2024-02-28,2024-08-06
+O015,BioPharma - Laboratory Management,A011,720000,2024-12-15,Proposal/Price Quote,55,Conference,Add-On Business,"Integration specifications",Jennifer Lee,2024-06-12,2024-08-05
+O016,UrbanDev - Project Management Suite,A013,425000,2024-11-20,Value Proposition,40,Partner Referral,New Business,"Workflow optimization review",Ashley Miller,2024-04-08,2024-07-28
+O017,SecureNet - Threat Detection,A015,295000,2024-09-10,Negotiation/Review,90,LinkedIn,New Business,"Security audit completion",Rachel Green,2024-01-25,2024-08-07
+O018,SecureNet - Compliance Monitoring,A015,180000,2024-08-25,Closed Won,100,LinkedIn,Add-On Business,"Implementation kickoff",Rachel Green,2024-06-30,2024-08-08
+O019,AutoParts - Supply Chain Optimization,A016,640000,2024-10-05,Proposal/Price Quote,65,Trade Show,New Business,"Vendor integration planning",Tom Martinez,2024-03-20,2024-08-03
+O020,BuildSmart - Construction Management,A018,880000,2024-11-10,Value Proposition,35,Referral,New Business,"Site visit and requirements gathering",Eric Johnson,2024-05-15,2024-08-01
+O021,DataViz - Analytics Dashboard,A019,350000,2024-09-25,Proposal/Price Quote,75,LinkedIn,New Business,"Data visualization mockups",Maria Garcia,2024-02-18,2024-08-04
+O022,DataViz - Machine Learning Platform,A019,520000,2025-01-20,Qualification,30,LinkedIn,Add-On Business,"AI model development discussion",Maria Garcia,2024-07-10,2024-08-06
+O023,FinanceFlow - Payment Processing,A021,450000,2024-12-20,Value Proposition,40,Website,New Business,"Integration requirements review",Nicole Adams,2024-04-25,2024-08-02
+O024,SportsTech - E-commerce Platform,A022,285000,2024-10-10,Negotiation/Review,80,Trade Show,Replacement Business,"Contract terms finalization",Jason Lee,2024-01-30,2024-08-05
+O025,SmartHome - IoT Integration,A024,620000,2024-11-25,Proposal/Price Quote,60,Website,New Business,"Device compatibility testing",Daniel Kim,2024-05-22,2024-08-07
+O026,FreshFood - Inventory System,A025,750000,2025-01-30,Qualification,25,LinkedIn,New Business,"Multi-location requirements analysis",Amanda Chen,2024-06-18,2024-08-03
+O027,InvestSmart - Portfolio Management,L007,580000,2024-12-10,Value Proposition,35,Referral,New Business,"Investment strategy alignment",Anna Thompson,2024-07-12,2024-08-05
+O028,BioResearch - Lab Automation,L011,920000,2025-04-15,Qualification,30,Conference,New Business,"Equipment specification review",Jennifer Lee,2024-07-22,2024-08-04
+O029,CyberShield - Network Security,L015,385000,2024-10-20,Proposal/Price Quote,70,Referral,New Business,"Penetration testing schedule",Rachel Green,2024-08-01,2024-08-07
+O030,DataInsights - Business Intelligence,L019,295000,2024-11-05,Negotiation/Review,85,Conference,New Business,"Licensing agreement review",Maria Garcia,2024-08-10,2024-08-12

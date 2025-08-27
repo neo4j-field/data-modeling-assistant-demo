@@ -1,0 +1,7 @@
+[project]
+name = "data-modeling-assistant-demo"
+version = "0.1.0"
+description = "This project demonstrates how to use the Neo4j Data Modeling MCP server to assist in modeling relational data as a graph and ingesting into a Neo4j database."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []

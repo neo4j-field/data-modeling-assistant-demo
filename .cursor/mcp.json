@@ -1,0 +1,9 @@
+{
+    "mcpServers": {
+        "neo4j-data-modeling": {
+            "command": "uvx",
+            "args": [ "mcp-neo4j-data-modeling@0.4.0" ]
+        }
+    }
+} 
+  

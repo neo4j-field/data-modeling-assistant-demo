@@ -1,0 +1,25 @@
+## Data Summary
+
+* Accounts (25 records): Mix of customers and prospects across various industries (Technology, Healthcare, Manufacturing, etc.) with realistic revenue ranges and employee counts
+* Contacts (31 records): Associated with accounts, including realistic titles, contact information, and lead sources
+* Leads (20 records): Potential customers at various stages (Open, Working, Qualified) with industry and revenue data
+* Opportunities (30 records): Sales deals ranging from $95K to $1.85M across different stages of the sales pipeline, linked to both accounts and some converted leads
+* Cases (30 records): Support tickets with various priorities and types (Problems, Feature Requests, Training, etc.)
+
+## Key Features for Analytics
+
+1. Realistic relationships - Contacts belong to accounts, opportunities reference both accounts and leads
+2. Varied data points - Different industries, revenue ranges, deal sizes, and geographic locations
+3. Time-based data - Creation dates, close dates, and activity dates for trend analysis
+4. Status tracking - Various stages for leads, opportunities, and cases
+5. Consistent naming - Professional company names, realistic contact information
+
+## Analytics Opportunities
+
+* Sales pipeline analysis by stage and probability
+* Lead conversion rates by source and owner
+* Account performance by industry and size
+* Case volume and resolution time analysis
+* Geographic distribution of customers and prospects
+* Revenue forecasting based on opportunity pipeline
+* Performance tracking by sales rep/owner

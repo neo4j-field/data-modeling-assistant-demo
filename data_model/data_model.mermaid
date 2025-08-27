@@ -1,0 +1,35 @@
+graph TD
+%% Nodes
+Account["Account<br/>accountId: STRING | KEY<br/>accountName: STRING<br/>accountType: STRING<br/>industry: STRING<br/>annualRevenue: INTEGER<br/>numberOfEmployees: INTEGER<br/>accountOwner: STRING<br/>createdDate: DATE<br/>rating: STRING"]
+Contact["Contact<br/>contactId: STRING | KEY<br/>firstName: STRING<br/>lastName: STRING<br/>title: STRING<br/>email: STRING<br/>contactOwner: STRING<br/>leadSource: STRING"]
+Case["Case<br/>caseId: STRING | KEY<br/>caseNumber: INTEGER<br/>subject: STRING<br/>status: STRING<br/>priority: STRING<br/>type: STRING<br/>reason: STRING<br/>createdDate: DATE<br/>closedDate: DATE"]
+Opportunity["Opportunity<br/>opportunityId: STRING | KEY<br/>opportunityName: STRING<br/>amount: INTEGER<br/>closeDate: DATE<br/>stageName: STRING<br/>probability: INTEGER<br/>opportunityOwner: STRING"]
+Lead["Lead<br/>leadId: STRING | KEY<br/>firstName: STRING<br/>lastName: STRING<br/>company: STRING<br/>status: STRING<br/>industry: STRING<br/>leadOwner: STRING"]
+CaseOwner["CaseOwner<br/>ownerId: STRING | KEY<br/>name: STRING"]
+
+%% Relationships
+Contact -->|BELONGS_TO_ACCOUNT| Account
+Account -->|HAS_CASE| Case
+Case -->|REPORTED_BY| Contact
+Account -->|HAS_OPPORTUNITY| Opportunity
+Lead -->|CONVERTED_TO_OPPORTUNITY| Opportunity
+Case -->|ASSIGNED_TO| CaseOwner
+
+%% Styling 
+classDef node_0_color fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000,font-size:12px
+class Account node_0_color
+
+classDef node_1_color fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,color:#000,font-size:12px
+class Contact node_1_color
+
+classDef node_2_color fill:#e8f5e8,stroke:#388e3c,stroke-width:3px,color:#000,font-size:12px
+class Case node_2_color
+
+classDef node_3_color fill:#fff3e0,stroke:#f57c00,stroke-width:3px,color:#000,font-size:12px
+class Opportunity node_3_color
+
+classDef node_4_color fill:#fce4ec,stroke:#c2185b,stroke-width:3px,color:#000,font-size:12px
+class Lead node_4_color
+
+classDef node_5_color fill:#e0f2f1,stroke:#00695c,stroke-width:3px,color:#000,font-size:12px
+class CaseOwner node_5_color

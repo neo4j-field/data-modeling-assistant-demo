@@ -1,0 +1,32 @@
+Contact_ID,First_Name,Last_Name,Account_ID,Title,Email,Phone,Mobile_Phone,Mailing_Street,Mailing_City,Mailing_State,Mailing_Postal_Code,Mailing_Country,Lead_Source,Contact_Owner,Created_Date,Last_Activity_Date
+C001,John,Smith,A001,CTO,john.smith@techflow.com,(415) 555-0123,(415) 555-9876,"123 Innovation Dr","San Francisco",CA,94105,USA,Website,Sarah Johnson,2023-01-15,2024-07-30
+C002,Maria,Rodriguez,A001,VP Engineering,maria.rodriguez@techflow.com,(415) 555-0124,(415) 555-9877,"123 Innovation Dr","San Francisco",CA,94105,USA,Referral,Sarah Johnson,2023-03-22,2024-08-02
+C003,Robert,Chen,A002,Manufacturing Director,robert.chen@globalmfg.com,(313) 555-0456,(313) 555-8765,"456 Industrial Blvd","Detroit",MI,48201,USA,Trade Show,Mike Chen,2023-01-22,2024-07-25
+C004,Lisa,Williams,A002,Operations Manager,lisa.williams@globalmfg.com,(313) 555-0457,(313) 555-8766,"456 Industrial Blvd","Detroit",MI,48201,USA,Cold Call,Mike Chen,2023-04-10,2024-08-01
+C005,Dr. Sarah,Johnson,A003,Chief Medical Officer,sarah.johnson@healthfirst.com,(617) 555-0789,(617) 555-7654,"789 Medical Center Way","Boston",MA,02101,USA,Website,Emily Rodriguez,2023-02-03,2024-08-05
+C006,Michael,Davis,A003,IT Director,michael.davis@healthfirst.com,(617) 555-0790,(617) 555-7655,"789 Medical Center Way","Boston",MA,02101,USA,LinkedIn,Emily Rodriguez,2023-05-15,2024-07-28
+C007,Jennifer,Wilson,A004,Academic Director,jennifer.wilson@edutech.com,(512) 555-0321,(512) 555-6543,"321 Campus Lane","Austin",TX,78701,USA,Conference,David Park,2023-02-15,2024-07-20
+C008,David,Brown,A005,Store Operations VP,david.brown@retailmax.com,(312) 555-0654,(312) 555-5432,"654 Commerce St","Chicago",IL,60601,USA,Partner Referral,Lisa Wang,2023-02-28,2024-08-03
+C009,Amanda,Taylor,A005,Merchandising Director,amanda.taylor@retailmax.com,(312) 555-0655,(312) 555-5433,"654 Commerce St","Chicago",IL,60601,USA,Website,Lisa Wang,2023-06-12,2024-07-31
+C010,James,Anderson,A006,Project Manager,james.anderson@greenenergy.com,(602) 555-0987,(602) 555-4321,"987 Solar Way","Phoenix",AZ,85001,USA,Website,James Wilson,2023-03-10,2024-07-15
+C011,Rachel,Martinez,A007,Portfolio Manager,rachel.martinez@finpartners.com,(212) 555-0159,(212) 555-3210,"159 Wall Street","New York",NY,10005,USA,LinkedIn,Anna Thompson,2023-03-18,2024-08-07
+C012,Kevin,Lee,A007,Risk Analyst,kevin.lee@finpartners.com,(212) 555-0160,(212) 555-3211,"159 Wall Street","New York",NY,10005,USA,Cold Call,Anna Thompson,2023-07-25,2024-08-04
+C013,Michelle,Garcia,A008,Senior Consultant,michelle.garcia@cloudfirst.com,(206) 555-0753,(206) 555-2109,"753 Tech Plaza","Seattle",WA,98101,USA,Referral,Robert Kim,2023-04-02,2024-08-01
+C014,Thomas,White,A009,Farm Operations Manager,thomas.white@agrigrow.com,(515) 555-0852,(515) 555-1098,"852 Farm Road","Des Moines",IA,50301,USA,Trade Show,Michelle Davis,2023-04-14,2024-07-18
+C015,Jessica,Thompson,A010,Content Director,jessica.thompson@mediastream.com,(323) 555-0147,(323) 555-0987,"147 Broadcast Ave","Los Angeles",CA,90028,USA,Website,Chris Anderson,2023-04-25,2024-08-06
+C016,Brandon,Kim,A010,Technical Producer,brandon.kim@mediastream.com,(323) 555-0148,(323) 555-0988,"147 Broadcast Ave","Los Angeles",CA,90028,USA,LinkedIn,Chris Anderson,2023-08-30,2024-07-29
+C017,Dr. Emily,Parker,A011,Research Director,emily.parker@biopharma.com,(617) 555-0258,(617) 555-9876,"258 Research Pkwy","Cambridge",MA,02139,USA,Conference,Jennifer Lee,2023-05-08,2024-08-05
+C018,Steven,Clark,A012,Logistics Manager,steven.clark@smartlogistics.com,(901) 555-0369,(901) 555-8765,"369 Freight Ln","Memphis",TN,38103,USA,Cold Call,Mark Taylor,2023-05-20,2024-07-22
+C019,Nicole,Adams,A013,Development Manager,nicole.adams@urbandev.com,(305) 555-0741,(305) 555-7654,"741 Development Dr","Miami",FL,33131,USA,Partner Referral,Ashley Miller,2023-06-01,2024-08-02
+C020,Ryan,Miller,A014,Product Manager,ryan.miller@foodtech.com,(503) 555-0963,(503) 555-6543,"963 Culinary Blvd","Portland",OR,97201,USA,Website,Kevin Brown,2023-06-15,2024-07-12
+C021,Sarah,Green,A015,Security Analyst,sarah.green@securenet.com,(303) 555-0852,(303) 555-5432,"852 Security Way","Denver",CO,80202,USA,LinkedIn,Rachel Green,2023-06-28,2024-08-04
+C022,Matthew,Rodriguez,A016,Parts Manager,matthew.rodriguez@autoparts.com,(317) 555-0753,(317) 555-4321,"753 Motor Ave","Indianapolis",IN,46201,USA,Trade Show,Tom Martinez,2023-07-12,2024-07-30
+C023,Ashley,Wilson,A017,Customer Service Manager,ashley.wilson@travelease.com,(407) 555-0159,(407) 555-3210,"159 Vacation St","Orlando",FL,32801,USA,Website,Sandra Wilson,2023-07-25,2024-07-08
+C024,Jordan,Johnson,A018,Project Supervisor,jordan.johnson@buildsmart.com,(713) 555-0357,(713) 555-2109,"357 Builder Rd","Houston",TX,77001,USA,Referral,Eric Johnson,2023-08-08,2024-08-01
+C025,Samantha,Garcia,A019,Senior Data Analyst,samantha.garcia@dataviz.com,(404) 555-0159,(404) 555-1098,"159 Analytics Ave","Atlanta",GA,30303,USA,LinkedIn,Maria Garcia,2023-08-20,2024-08-06
+C026,Alex,Turner,A020,Environmental Engineer,alex.turner@cleantech.com,(619) 555-0951,(619) 555-0987,"951 Green Blvd","San Diego",CA,92101,USA,Conference,Alex Turner,2023-09-03,2024-07-15
+C027,Taylor,Adams,A021,Software Architect,taylor.adams@financeflow.com,(704) 555-0753,(704) 555-9876,"753 Banking St","Charlotte",NC,28201,USA,Website,Nicole Adams,2023-09-15,2024-08-03
+C028,Logan,Lee,A022,Product Designer,logan.lee@sportstech.com,(612) 555-0258,(612) 555-8765,"258 Athletic Way","Minneapolis",MN,55401,USA,Trade Show,Jason Lee,2023-09-28,2024-07-28
+C029,Dr. Emma,White,A023,Veterinarian,emma.white@petcare.com,(615) 555-0147,(615) 555-7654,"147 Pet Lane","Nashville",TN,37201,USA,Referral,Lauren White,2023-10-10,2024-07-10
+C030,Mason,Kim,A024,IoT Engineer,mason.kim@smarthome.com,(512) 555-0369,(512) 555-6543,"369 Connected Dr","Austin",TX,78702,USA,Website,Daniel Kim,2023-10-22,2024-08-05
+C031,Chloe,Chen,A025,Store Manager,chloe.chen@freshfood.com,(916) 555-0741,(916) 555-5432,"741 Market St","Sacramento",CA,95814,USA,LinkedIn,Amanda Chen,2023-11-05,2024-08-04
