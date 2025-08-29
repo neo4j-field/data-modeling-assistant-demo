@@ -48,6 +48,7 @@ Key Risk Indicators:
 Combined opportunity value at risk: $13.7M+
 4 accounts have "Hot" rating with high-priority cases
 1 case is already escalated (RetailMax Stores)
+
 📊 Case Assignment Recommendations
 For New Case Assignment, Consider:
 

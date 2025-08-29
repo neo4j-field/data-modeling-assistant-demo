@@ -36,7 +36,11 @@ Process
 
 Claude Desktop using Claude Sonnet 4 was used to generate a YAML file organizing our Cypher ingest queries. The prompt found in `yaml_gen.txt` was used for this process.
 
-Claude Code was used to generate our ingestion script. The prompt found in `code_gen.txt` was used for this process. Claude Code was able to 2-shot this ingest script and our data was successfully loaded. Note that the relationship (:Lead)-[:CONVERTED_TO_OPPORTUNITY]->(:Opportunity) was identified as not being possible given the provided data. We are missing data that describes whether a lead was converted to an opportunity. Therefor our graph is missing this relationship.
+Claude Code was used to generate our ingestion script. The prompt found in `code_gen.txt` was used for this process. 
+
+Claude Code was able to 2-shot this ingest script and our data was successfully loaded. 
+
+Note that the relationship (:Lead)-[:CONVERTED_TO_OPPORTUNITY]->(:Opportunity) was identified as not being possible given the provided data. We are missing data that describes whether a lead was converted to an opportunity. Therefor our graph is missing this relationship.
 
 ### Running The Ingest
 
